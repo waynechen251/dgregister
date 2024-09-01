@@ -12,7 +12,7 @@
         "Packages": []
     },
     "base.env.free_sql_configuration": {
-        "DbConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=sMOMDevP",
+        "DbConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=devp-2-1",
         "DbType": "PostgreSql",
         "CmdParamEnable": false,
         "GenerateCmdParamWithLambdaEnable": true,
@@ -25,7 +25,7 @@
         "AutoShardingEnable": true
     },
     "base.env.meta.core": {
-        "StorageConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=mom_meta_dev",
+        "StorageConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=mom-meta-dev",
         "FileStorageRootPath": "",
         "PackageLevels": [
             "Infrastructure",

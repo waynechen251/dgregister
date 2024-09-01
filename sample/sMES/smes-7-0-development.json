@@ -25,7 +25,7 @@
         "AutoShardingEnable": true
     },
     "base.env.meta.core": {
-        "StorageConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=mom_meta_dev",
+        "StorageConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=mom-meta-dev",
         "FileStorageRootPath": "",
         "PackageLevels": [
             "Infrastructure",
