@@ -6,7 +6,7 @@ Server=127.0.0.1;PORT=5432;USER ID=postgres;PASSWORD=12345
 
 "base.env.rabbitmq_config": {
     "MqServiceType": "local",
-    "HostName": "$(RabbitMq.IP)",
+    "HostName": "$(RabbitMq.Ip)",
     "UserName": "$(RabbitMq.UserName)",
     "Password": "$(RabbitMq.Password)",
     "VirtualHost": "$(RabbitMq.VHost)",

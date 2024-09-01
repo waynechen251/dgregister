@@ -1,0 +1,43 @@
+{
+  "Nacos": {
+    "Ip": "127.0.0.1",
+    "Port": 8848,
+    "Namespace": "sMOM",
+    "UserName": "admin",
+    "Password": "12345"
+  },
+  "Database": {
+    "Ip": "127.0.0.1",
+    "Port": 5432,
+    "UserName": "postgres",
+    "Password": "12345"
+  },
+  "Redis": {
+    "Ip": "127.0.0.1",
+    "Port": 6379,
+    "Password": "12345"
+  },
+  "ObjectStorage": {
+    "Oss": {
+      "ServerType": 1,
+      "Region": "cn-shanghai",
+      "EndPoint": "http://127.0.0.1:9000",
+      "Bucket": "",
+      "Ak": "minioadmin",
+      "Sk": "minioadmin"
+    }
+  },
+  "RabbitMq": {
+    "Ip": "127.0.0.1",
+    "Port": 5672,
+    "UserName": "guest",
+    "Password": "12345",
+    "VHost": "vhost_dev"
+  },
+  "Log": {
+    "StorageType": 1,
+    "KeepDays": 7,
+    "SeqUrl": "http://localhost:5341/",
+    "SeqApiKey": ""
+  }
+}
