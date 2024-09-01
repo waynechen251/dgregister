@@ -29,3 +29,5 @@ Thumbs.db
 
 # 忽略 done 目錄中的所有文件
 done/*
+
+*.exe
