@@ -13,6 +13,8 @@ def main():
     
     if args.function == 'replace_placeholder':
         replace_placeholder(args.file, args.placeholder, args.replacement, args.output)
+    
+    return 0
 
 if __name__ == '__main__':
     main()
