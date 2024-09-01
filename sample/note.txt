@@ -1,0 +1,58 @@
+$(Redis.Ip):$(Redis.Port),password=$(Redis.Password)
+127.0.0.1:6379,password=12345
+
+Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password)
+Server=127.0.0.1;PORT=5432;USER ID=postgres;PASSWORD=12345
+
+"base.env.rabbitmq_config": {
+    "MqServiceType": "local",
+    "HostName": "$(RabbitMq.IP)",
+    "UserName": "$(RabbitMq.UserName)",
+    "Password": "$(RabbitMq.Password)",
+    "VirtualHost": "$(RabbitMq.VHost)",
+    "Port": "$(RabbitMq.Port)",
+    "HandlerLockConnectString": "",
+    "HandlerLockTimeoutSeconds": 15
+  }
+"base.env.rabbitmq_config": {
+    "MqServiceType": "local",
+    "HostName": "127.0.0.1",
+    "UserName": "guest",
+    "Password": "12345",
+    "VirtualHost": "vhost_dev",
+    "Port": "5672",
+    "HandlerLockConnectString": "",
+    "HandlerLockTimeoutSeconds": 15
+  }
+
+"base.env.aws": {
+    "serverType": "1",
+    "endpoint": "$(ObjectStorage.Oss.EndPoint)",
+    "forcePathStyle": true,
+    "region": "$(ObjectStorage.Oss.Region)",
+    "accessKey": "$(ObjectStorage.Oss.Ak)",
+    "secretKey": "$(ObjectStorage.Oss.Sk)",
+    "useSignedUrl": false,
+    "preSignedUrlExpiresSeconds": 3600
+  }
+"base.env.aws": {
+    "serverType": "1",
+    "endpoint": "http://127.0.0.1:9000",
+    "forcePathStyle": true,
+    "region": "cn-shanghai",
+    "accessKey": "minioadmin",
+    "secretKey": "minioadmin",
+    "useSignedUrl": false,
+    "preSignedUrlExpiresSeconds": 3600
+  }
+
+$(Log.KeepDays)
+7
+
+$(Log.SeqUrl)
+http://localhost:5341/
+
+$(Log.SeqApiKey)
+
+$(Log.StorageType)
+seq

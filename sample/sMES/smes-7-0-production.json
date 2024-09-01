@@ -1,0 +1,161 @@
+{
+
+    "base.env.meta": {
+        "EditLevel": "Standard",
+        "EditName": "",
+        "IsBackup": "N",
+        "IsAutoFit": "N"
+    },
+    "base.env.package": {
+        "AutoScan": true,
+        "ReloadDelay": 1,
+        "Packages": []
+    },
+    "base.env.free_sql_configuration": {
+        "DbConnectionString": "Data Source=127.0.0.1;User Id=sa;Password=Mkssa123;Initial Catalog=smes_7_0_production;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1",
+        "DbType": "SqlServer",
+        "CmdParamEnable": false,
+        "GenerateCmdParamWithLambdaEnable": true,
+        "MonitorCommandEnable": true,
+        "SlaveConnections": [],
+        "SlaveWeights": [],
+        "QuoteSqlNameEnable": true,
+        "LazyLoadingEnable": false,
+        "AdoConnectionPoolEnable": true,
+        "AutoShardingEnable": true
+    },
+    "base.env.meta.core": {
+        "StorageConnectionString": "Server=$(Database.Ip);PORT=$(Database.Port);USER ID=postgres;PASSWORD=$(Database.Password); DATABASE=mom_meta_dev",
+        "FileStorageRootPath": "",
+        "PackageLevels": [
+            "Infrastructure",
+            "Standard",
+            "Industry",
+            "Consumer",
+            "Cache"
+        ]
+    },
+    "base.env.onion_package": {
+        "PackageSetting": {
+            "AutoScan": true,
+            "ReloadDelay": 1,
+            "Packages": []
+        },
+        "ExtendAssemblyPaths": [
+            "Extends",
+            "PackageExtends"
+        ],
+         "UseLocalApiPackage": true
+    },
+    "base.env.job.hangfire": {
+        "StorageType": "redis",
+        "HangfireRedis": {
+            "ConnectionString": "$(Redis.Ip):$(Redis.Port),password=$(Redis.Password),defaultDatabase=12"
+        },
+        "HangfireServer": {
+            "Enable": true
+        },
+        "HangfireDashboard": {
+            "Enable": true,
+            "DashboardLoginPwd": "9bdc59cfe4b46f08d182c0fc440c86e8",
+            "DashboardLoginName": "momAdmin"
+        },
+        "base.env.mongodb_connection_string": "mongodb://127.0.0.1:27017/",
+        "base.env.mongodb_database": "sMOM",
+        "base.env.mongodb_eventbus_database": "sMOMEventbus",
+        "base.env.rabbitmq_config": {
+			"MqServiceType": "local",
+			"HostName": "$(RabbitMq.IP)",
+			"UserName": "$(RabbitMq.UserName)",
+			"Password": "$(RabbitMq.Password)",
+			"VirtualHost": "$(RabbitMq.VHost)",
+			"Port": "$(RabbitMq.Port)",
+			"HandlerLockConnectString": "",
+			"HandlerLockTimeoutSeconds": 15
+		  }
+    },
+    "base.env.scheduler": {
+        "KeepLogDays": 7,
+        "Enable": false
+    },
+    "base.env.document": {
+        "FileRootPath": ""
+    },
+    "base.env.localization": {
+        "ResourceType": 0,
+        "ResourcePath": "Resources",
+        "ResourcePrefix": "Resource",
+        "Dictionary": {
+            "HKVariants": [],
+            "HKVariantsPhrases": [],
+            "HKVariantsRevPhrases": [],
+            "JPVariants": [],
+            "STCharacters": [],
+            "STPhrases": [
+                [
+                    "签核",
+                    "簽核"
+                ],
+                [
+                    "退签",
+                    "退簽"
+                ]
+            ],
+            "TSCharacters": [],
+            "TSPhrases": [],
+            "TWPhrasesIT": [
+                [
+                    "程序",
+                    "程序"
+                ]
+            ],
+            "TWPhrasesName": [],
+            "TWPhrasesOther": [],
+            "TWVariants": [],
+            "TWVariantsRevPhrases": []
+        }
+    },
+    "base.env.data": {},
+    "base.env.integration": {
+        "ESB": {
+            "baseUri": "http://127.0.0.1:3301",
+            "queryUri": "http://127.0.0.1:3301/CROSS/RESTful",
+            "invokeUri": "http://127.0.0.1:3301/RestfulAPI",
+            "timeout": 60,
+            "host": {
+                "id": "sMOMDev_ALL"
+            }
+        }
+    },
+    "ReverseProxy": {
+        "Routes": {
+            "sMES_Test_Backend" : {
+                "ClusterId": "sMES_Cluster",
+                "Match": {
+                    "Path": "/sMES_Test_Backend/{*remainder}"
+                },
+                "Transforms":[
+                    { "PathRemovePrefix": "/sMES_Test_Backend" }
+                ]
+            },
+			"NJ" : {
+                "ClusterId": "sMES_Cluster",
+                "Match": {
+                    "Path": "/NJ/{*remainder}"
+                },
+                "Transforms":[
+                    { "PathRemovePrefix": "/NJ" }
+                ]
+            }
+        },
+        "Clusters": {
+            "sMES_Cluster": {
+                "Destinations": {
+                    "sMES_Cluster/destination1": {
+                        "Address": "http://127.0.0.1:20191"
+                    }
+                }
+            }
+        }
+    }
+}
